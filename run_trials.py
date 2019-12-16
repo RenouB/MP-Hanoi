@@ -18,13 +18,13 @@ for agent in [0,1,2]:
 		print("\n")
 		print("CONTEXT", win_context)
 		results[agent][win_context] ={}
-		for h in range(5,7):
+		for h in range(15):
 			print("H", h)
 			results[agent][win_context][h] = {}
 			results[agent][win_context][h]['turn_count'] = 0
 			results[agent][win_context][h]['solved'] = 0
 			results[agent][win_context][h]['failed'] = 0
-			for i in range(2):
+			for i in range(500):
 				if 1 % 20 == 0:
 					print(i)
 				turn_count = play_hanoi(h=h, n_discs=3, agent=agent, win_context=win_context)
