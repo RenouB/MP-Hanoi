@@ -28,7 +28,7 @@ for agent in [0]:
 			for i in range(100):
 				if i % 20 == 0:
 					print(i)
-				turn_count, subsolutions = play_hanoi(h=h, n_discs=3, agent=agent, \
+				turn_count, subsolutions = play_hanoi(h=h, n_discs=4, agent=agent, \
 											win_context=0, 
 											subsolutions=subsolutions)
 				if turn_count <= 10000:
