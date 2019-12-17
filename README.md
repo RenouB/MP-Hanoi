@@ -10,7 +10,7 @@ Twelve of the columns represent different experiment conditions, and a thirteent
 Given this situation, I have decided to perform a t-test between each column pair. Using the resulting values, I computed an average p-value for a given column with respect to all others. While doing so, I also counted the number of times that the calculated p-value was <= 0.05. The following table contains this information in addition to some other useful metrics.
 
 |condition|   mean|     sd|  av_p|sig_count|
---------------------------------------------
+|------------------------------------------|
 |X81      | 91.59 | 28.60 | 0.56 |       1 |
 |X40      | 92.66 | 27.14 | 0.62 |       0 |
 |X99      | 96.20 | 32.97 | 0.57 |       0 |
