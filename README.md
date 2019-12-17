@@ -1,5 +1,24 @@
 # MP-Hanoi
 
+# Task 1 - Simulation of different play strategies for the Tower of Hanoi Game
+
+For this task three strategies were simulated.
+- **Agent 0**: This agent plans h moves ahead and chooses the set of moves that results in the highest score, where the score is measured as the number of discs in the correct location after h moves. When multiple possibilities shared the same score, the agent randomly selected from these.
+- **Agent 1**: Given an initial state, this agent identifies the largest misplaced disk. It subsequently plans h moves ahead to try and place this disc in its correct location. If multiple possibilities satisfy this criteria, it chooses from them based on score, analogously to Agent 0. If no possibilities satisfy this criteria, it employs the exact same strategy as agent 0.
+- **Agent 2**: This agent is identical to Agent 1, except that it attempts to place a randomly chosen disc.
+
+TheTower of Hanoi game has all discs beginning on the first pole, and the goal is to place them on the final pole. Here, the simulations differ from the original game in this respect. The start states are randomly initialized. We also experiment with variations on the winning state. In Win Context 0, all discs must be place on a randomly chosen pole. In Win Context 1, the winning state is randomly chosen. We make no changes to the rules governing disc movements and valable configurations. All simulations involve four discs (the implementation contained here is not efficient enough to scale to five).
+
+For each agent and each win context, we simulate planning horizons in the range of 1 to 15. Each of these individual simulations is performed 250 times and the resulting scores are averaged. The score is simply the number of turns taken to complete the game. Because it is possible for agents to become stuck in an infinite loop, we set a maximum turn limit of 1000, after which a failure is counted.
+
+We now present and discuss the results.
+
+## Agent 0
+## Agent 1
+## Agent 2
+
+## Win Contexts
+
 # Task 2 - Productivity Scores
 
 For this task, I was provided with the results of a randomized controlled trial, where different goal setting apps were provided to participants and productivity scores were subsequently obtained.
