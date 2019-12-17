@@ -45,5 +45,5 @@ for agent in [2]:
 	print("\n")
 
 print(results)
-with open('result-a1c0.pkl', 'wb') as f:
+with open('result-a2c0.pkl', 'wb') as f:
 	pickle.dump(results, f)
