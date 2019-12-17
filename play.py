@@ -3,7 +3,7 @@ generate_random_state, get_configs_h_ahead
 from strategies import choose_agent_zero, choose_agent_one, choose_agent_two
 import numpy as np
 
-def play_hanoi(h=4, agent=0, n_discs=4, max_turns=10000, win_context=0):
+def play_hanoi(h=4, agent=0, n_discs=4, max_turns=10000, win_context=0, subsolutions={}):
     
     turn_counter = 0
     win = False
@@ -48,7 +48,7 @@ def play_hanoi(h=4, agent=0, n_discs=4, max_turns=10000, win_context=0):
 
         # end game if win detected
         if len(winning_configurations):
-            return sorted(winning_configurations, key=lambda e: e[1])[0][1]
+            return sorted(winning_configurations, key=lambda e: e[1])[0][1], subsolutions
 
         else:
             turn_counter += h
@@ -63,4 +63,4 @@ def play_hanoi(h=4, agent=0, n_discs=4, max_turns=10000, win_context=0):
         
         current_state = choice
         
-    return turn_counter
+    return turn_counter, subsolutions
