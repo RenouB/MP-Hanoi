@@ -9,7 +9,7 @@ keep track of average
 
 results = {}
 
-for agent in [1]:
+for agent in [2]:
 	print("#######################")
 	print("AGENT", agent)
 	print("#######################")
@@ -29,7 +29,7 @@ for agent in [1]:
 				if i % 20 == 0:
 					print(i)
 				turn_count, subsolutions = play_hanoi(h=h, n_discs=4, agent=agent, \
-											win_context=0, 
+											win_context=1, 
 											subsolutions=subsolutions)
 				if turn_count <= 1000:
 					results[agent][win_context][h]['turn_count'] += turn_count

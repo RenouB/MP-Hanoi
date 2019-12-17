@@ -25,13 +25,13 @@ for agent in [0]:
 			results[agent][win_context][h]['turn_count'] = 0
 			results[agent][win_context][h]['solved'] = 0
 			results[agent][win_context][h]['failed'] = 0
-			for i in range(100):
+			for i in range(250):
 				if i % 20 == 0:
 					print(i)
 				turn_count, subsolutions = play_hanoi(h=h, n_discs=4, agent=agent, \
 											win_context=0, 
 											subsolutions=subsolutions)
-				if turn_count <= 10000:
+				if turn_count <= 1000:
 					results[agent][win_context][h]['turn_count'] += turn_count
 					results[agent][win_context][h]['solved'] += 1
 				else:
@@ -41,7 +41,7 @@ for agent in [0]:
 					results[agent][win_context][h]['turn_count'] / \
 					results[agent][win_context][h]['solved']
 			else:
-				results[agent][win_context][h]['average_turn_count'] = 10000
+				results[agent][win_context][h]['average_turn_count'] = 1000
 	print("\n")
 
 print(results)

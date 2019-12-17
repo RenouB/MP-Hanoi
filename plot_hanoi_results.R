@@ -1,38 +1,125 @@
 library(tidyverse)
+install.packages("tidyverse")
 library(dplyr)
 library(reshape2)
-results <- read.csv("fake_results.csv")
+results <- read.csv("results.csv")
 
 agent_zero <- results %>% filter(agent == 0)
-melted <- agent_zero %>% select("win.context","av.turns","h","failed") %>% 
-  melt(id.vars=c("h", "win.context"), measure.vars=c("av.turns", "failed"))
+zero_colors <- c("#AD2C23", "#FF7066")
+agent_one <- results %>% filter(agent == 1)
+one_colors <- c("#B39340","#FFE08F")
+agent_two <- results %>% filter(agent == 2)
+two_colors = c("#526AB3", "#90ABFF")
+three_together_colors <- c("#FF7066","#FFE08F") #,"#90ABFF")
 
-library(ggplot2)
+context_zero <- results %>% filter(win.context == 0)
+context_one <- results %>%filter(win.context == 0)
+
 number_ticks <- function(n) {function(limits) pretty(limits, n)}
 
-g <- ggplot(melted, aes(x=h, y=value, fill=factor(win.context))) + 
+# begin plotting agent 0
+melted1 <- agent_zero %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("av.turns"))
+melted2 <- agent_zero %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("failed"))
+long <- cbind(melted1, melted2)
+long <- long[,-c(5,6)]
+
+g <- ggplot(long, aes(x=h, y=value, fill=factor(win.context))) + 
   geom_bar(stat="identity", position="dodge") +
-  geom_text(aes(label=value), vjust=0) +
-  opts(axis.text.x=theme_blank(),
-       axis.ticks=theme_blank(),
-       axis.title.x=theme_blank(),
-       legend.title=theme_blank(),
-       axis.title.y=theme_blank()
-  ) +
+  geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
   scale_fill_discrete(name="Win scenario",
                     # breaks=c(1, 2),
                     labels=c("Random pole", "Random state"))+
-  xlab("h")+ylab("Average score") +ylim(0,15) +   scale_x_continuous(breaks=number_ticks(16))
+  xlab("h")+ylab("Average score") +ylim(0,15) + scale_x_continuous(breaks=number_ticks(16))
+g
+
+# begin plotting agent 0
+melted1 <- agent_one %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("av.turns"))
+melted2 <- agent_one %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("failed"))
+long <- cbind(melted1, melted2)
+long <- long[,-c(5,6)]
+
+g <- ggplot(long, aes(x=h, y=value, fill=factor(win.context))) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
+  scale_fill_manual(values = zero_colors, name= "Win scenario", labels=(c("random pole", "random state")))+
+  xlab("h")+ylab("Average score") +ylim(0,15) + scale_x_continuous(breaks=number_ticks(16)) +
+  ggtitle("Agent zero's scores in both win scenarios")
+
+g
 
 
+# begin plotting agent 1
+melted1 <- agent_one %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("av.turns"))
+melted2 <- agent_one %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("failed"))
+long <- cbind(melted1, melted2)
+long <- long[,-c(5,6)]
 
+g <- ggplot(long, aes(x=h, y=value, fill=factor(win.context))) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
+  scale_fill_manual(values = one_colors,name= "Win scenario", labels=(c("random pole", "random state")))+
+  xlab("h")+ylab("Average score") +ylim(0,15) + scale_x_continuous(breaks=number_ticks(16)) +
+  ggtitle("Agent one's scores in both win scenarios")
 
+g
 
+# begin plotting agent 2
+melted1 <- agent_two %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("av.turns"))
+melted2 <- agent_two %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "win.context"), measure.vars=c("failed"))
+long <- cbind(melted1, melted2)
+long <- long[,-c(5,6)]
+
+g <- ggplot(long, aes(x=h, y=value, fill=factor(win.context))) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
+  scale_fill_manual(values = two_colors,name= "Win scenario", labels=(c("random pole", "random state")))+
+  xlab("h")+ylab("Average score") +ylim(0,15) + scale_x_continuous(breaks=number_ticks(16)) +
+  ggtitle("Agent two's scores in both win scenarios")
+
+g
+
+# begin plotting context 0
+melted1 <- context_zero %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "agent"), measure.vars=c("av.turns"))
+melted2 <- context_zero %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "agent"), measure.vars=c("failed"))
+long <- cbind(melted1, melted2)
+long <- long[,-c(5,6)]
+
+g <- ggplot(long, aes(x=h, y=value, fill=factor(win.context))) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
+  scale_fill_manual(values = three_together_colors, name= "Agent", labels=(c("0", "1")))+
+  xlab("h")+ylab("Average score") +ylim(0,15) + scale_x_continuous(breaks=number_ticks(16)) +
+  ggtitle("Scores for each agent in win scenario zero")
+g
+
+# begin plotting context 1
+melted1 <- context_one %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "agent"), measure.vars=c("av.turns"))
+melted2 <- context_one %>% select("win.context","av.turns","h","failed") %>% 
+  melt(id.vars=c("h", "agent"), measure.vars=c("failed"))
+long <- cbind(melted1, melted2)
+long <- long[,-c(5,6)]
+
+g <- ggplot(long, aes(x=h, y=value, fill=factor(win.context))) + 
+  geom_bar(stat="identity", position="dodge") +
+  geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
+  scale_fill_manual(values = three_together_colors, name= "Agent", labels=(c("0", "1")))+
+  xlab("h")+ylab("Average score") +ylim(0,15) + scale_x_continuous(breaks=number_ticks(16)) +
+  ggtitle("Scores for each agent in win scenario one")
 g
 
 
 
 
 
-df = melt(data.frame(agent=agent_one$h,, turns=agent_one$av.turns, 
-                     context=agent_one$win.context))
+
