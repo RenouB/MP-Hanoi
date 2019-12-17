@@ -94,7 +94,7 @@ def get_configs_h_ahead(state, h, turn_counter, winning_state,
     new_configurations: list of new configurations resulting from h moves. 
         is continuously appended to each time we reach the end of the recursion
     winning_configurations: maintain a list of winning configurations and their turn counts
-    subsolutions: dictionary mapping states to possible subsequent states
+    subsolutions: dictionary mapping states to possible subsequent state_as_string
     '''
 
     # check win
