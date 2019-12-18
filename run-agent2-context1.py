@@ -14,7 +14,7 @@ for agent in [2]:
 	print("AGENT", agent)
 	print("#######################")
 	results[agent] = {}
-	for win_context in [0]:
+	for win_context in [1]:
 		print("\n")
 		print("CONTEXT", win_context)
 		results[agent][win_context] ={}
@@ -45,5 +45,5 @@ for agent in [2]:
 	print("\n")
 
 print(results)
-with open('result-a2c0.pkl', 'wb') as f:
+with open('result-a2c1.pkl', 'wb') as f:
 	pickle.dump(results, f)
