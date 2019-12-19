@@ -1,6 +1,6 @@
-python3 -u run-agent0-context0.py > a0c0.out &
-python3 -u run-agent0-context1.py > a0c1.out &
-python3 -u run-agent1-context0.py > a1c0.out &
-python3 -u run-agent1-context1.py > a1c1.out &
-python3 -u run-agent2-context0.py > a2c0.out &
-python3 -u run-agent2-context1.py > a2c1.out &
+python3 -u run_agent.py -a 0 -c 0  > a0c0.out &
+python3 -u run_agent.py -a 0 -c 1  > a0c1.out &
+python3 -u run_agent.py -a 1 -c 0  > a1c0.out &
+python3 -u run_agent.py -a 1 -c 1  > a1c1.out &
+python3 -u run_agent.py -a 2 -c 0  > a2c0.out &
+python3 -u run_agent.py -a 2 -c 1  > a2c1.out &

@@ -1,5 +1,4 @@
 library(tidyverse)
-install.packages("tidyverse")
 library(dplyr)
 library(reshape2)
 results <- read.csv("results.csv")
@@ -79,7 +78,7 @@ long <- long[,-c(5,6)]
 g <- ggplot(long, aes(x=h, y=value, fill=factor(agent))) + 
   geom_bar(stat="identity", position="dodge") +
   geom_text(aes(label=value.1), position=position_dodge(width=0.9), vjust=-0.25)+
-  scale_fill_manual(values = three_together_colors, name= "Agent", labels=(c("0", "1")))+
+  scale_fill_manual(values = three_together_colors, name= "Agent", labels=(c("0", "1", "2")))
   xlab("h")+ylab("Average score") + scale_x_continuous(breaks=number_ticks(16)) +
   ggtitle("Scores for each agent in win scenario zero")
 g

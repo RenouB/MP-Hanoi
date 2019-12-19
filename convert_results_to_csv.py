@@ -13,7 +13,13 @@ with open("result-a1c0.pkl", 'rb') as f:
 with open("result-a1c1.pkl", 'rb') as f:
 	a1c1 = pickle.load(f)
 
-all = [a0c0, a0c1, a1c0, a1c1]
+with open("result-a2c0.pkl", 'rb') as f:
+	a2c0 = pickle.load(f)
+
+with open("result-a2c1.pkl", 'rb') as f:
+	a2c1 = pickle.load(f)
+
+all = [a0c0, a0c1, a1c0, a1c1, a2c0, a2c1]
 
 
 agents = []
