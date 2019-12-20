@@ -15,15 +15,12 @@ We now present and discuss the results.
 
 ## The Agents
 <img src="a0.png" width="500">
-![a0](a0.png)
-![a1](a1.png)
-![a2](a2.png)
-
-
+<img src="a1.png" width="500">
+<img src="a2.png" width="500">
 
 ## Win Contexts
-![c0](c0.png)
-![c1](c1.png)
+<img src="c0.png" width="500">
+<img src="c1.png" width="500">
 
 # Task 2 - Productivity Scores
 
