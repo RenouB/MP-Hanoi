@@ -9,18 +9,17 @@ For this task three strategies were simulated.
 
 The Tower of Hanoi game has all discs beginning on the first pole, and the goal is to place them on the final pole. Our simulations differ from the original game in this respect. The start states are randomly initialized. We also experiment with variations on the winning state. In Win Context 0, all discs must be placed on a randomly chosen pole. In Win Context 1, the winning state is randomly chosen. We make no changes to the rules governing disc movements and valable configurations. All simulations involve four discs (the implementation contained here does not elegantly scale to five).
 
-For each agent and win context, we simulate planning horizons in the range of 1 to 15. Each of these individual simulations is performed 250 times and the resulting scores are averaged, where score is the number of turns taken to complete the game. We set a maximum turn limit of 1000, after which a failure is counted.
+For each agent and win context, we simulate planning horizons in the range of 1 to 15. Each of these individual simulations is performed 250 times and the resulting scores are averaged, where score is the number of turns taken to complete the game.
 
-We now present and discuss the results.
+The results are now presented and discussed.
 
-## The Agents
-<img src="a0.png" width="500">
-<img src="a1.png" width="500">
-<img src="a2.png" width="500">
 
-## Win Contexts
+## Results
+
 <img src="c0.png" width="500">
 <img src="c1.png" width="500">
+
+The results will be interpreted by means of the two figures above. It can be plainly seen that for planning horizons of 11 moves or beyond, very little difference endures between the different strategies. In fact the traditional Tower of Hanoi game can be completed in 15 turns. By allowing for random beginning and win states, it is also possible to complete the game in many fewer turns.
 
 # Task 2 - Productivity Scores
 
