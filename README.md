@@ -14,7 +14,7 @@ For each agent and win context, we simulate planning horizons in the range of 1 
 We now present and discuss the results.
 
 ## The Agents
-![a0](a0.png | width=500)
+![a0](a0.png= 500x200)
 ![a1](a1.png)
 ![a2](a2.png)
 
